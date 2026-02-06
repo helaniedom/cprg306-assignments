@@ -15,11 +15,7 @@ export default function ItemList() {
                             .filter((item) => item.category === category)
                             .sort((a, b) => a.name.localeCompare(b.name))
                             .map((item) => (
-                                <Item
-                                    key={item.id}
-                                    name={item.name}
-                                    quantity={item.quantity}
-                                    category={item.category}/>
+                                <Item key={item.id} {...item} />
                             ))}
                     </ul>
                 </div>

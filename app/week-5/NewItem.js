@@ -63,7 +63,7 @@ export default function NewItem() {
                 <select
                     value={category}
                     onChange={handleCategoryChange}
-                    className="w-1/2 p-2 rounded-md"
+                    className="w-1/2 p-2 rounded-md bg-slate-700 text-white border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
 
                     <option value="produce">Produce</option>

@@ -5,7 +5,7 @@ import { useState, useMemo } from "react";
 export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
-    const [category, setCategory] = useState("produce");
+    const [category, setCategory] = useState("Produce");
 
     const categories = useMemo(
         () => [
@@ -39,7 +39,7 @@ export default function NewItem({ onAddItem }) {
         onAddItem(newItem);
         setName("");
         setQuantity(1);
-        setCategory("produce");
+        setCategory("Produce");
     }
 
     return (

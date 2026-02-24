@@ -30,10 +30,10 @@ export default function ItemList({ items }) {
             <button
                 type="button"
                 onClick={() => setSortBy(value)}
-                className={`px-3 py-1 rounded border ${
+                className={`px-3 py-1 rounded border transition-colors ${
                     isActive
-                        ? "bg-slate-700 text-white border-slate-500"
-                        : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                        ? "bg-slate-500 text-white border-slate-500"
+                        : "bg-slate-1000 text-slate-300 border-slate-1500 hover:bg-slate-800"
                 }`}
             >
                 {children}

@@ -9,17 +9,17 @@ export default function NewItem({ onAddItem }) {
 
     const categories = useMemo(
         () => [
-            "produce",
-            "dairy",
-            "bakery",
-            "meat",
-            "frozen foods",
-            "canned goods",
-            "dry goods",
-            "beverages",
-            "snacks",
-            "household",
-            "other",
+            "Produce",
+            "Dairy",
+            "Bakery",
+            "Meat",
+            "Frozen Foods",
+            "Canned Goods",
+            "Dry Goods",
+            "Beverages",
+            "Snacks",
+            "Household",
+            "Other",
         ],
         []
     );

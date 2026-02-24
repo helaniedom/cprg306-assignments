@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import itemsData from "./items.json";
+
 import ItemList from "./item-list";
+
 import NewItem from "./NewItem";
+
 
 export default function Page() {
     const [items, setItems] = useState(itemsData);

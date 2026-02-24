@@ -46,6 +46,8 @@ export default function NewItem({ onAddItem }) {
             onSubmit={handleSubmit}
             className="max-w-md mx-auto bg-slate-800 p-6 rounded-lg space-y-4">
 
+
+            {/* Item Name */} 
             <div className="space-y-1">
                 <label htmlFor="item-name" className="block text-sm text-slate-200">
                 Item name
@@ -62,6 +64,24 @@ export default function NewItem({ onAddItem }) {
                 />
             </div>
 
+            {/* Qty */}
+            <div className="space-y-1">
+                <label htmlFor="item-quantity" className="block text-sm text-slate-200">
+                    Quantity
+                </label>
+
+                <input
+                    id="item-quantity"
+                    type="number"
+                    min={1}
+                    max={99}
+                    value={quantity}
+                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    className="w-full p-2 rounded-md"
+                />
+            </div>
+
+            {/* Category */}
             <div className="w-1/2 space-y-1">
                 <label htmlFor="item-category" className="block text-sm text-slate-200">
                     Category

@@ -24,7 +24,8 @@ export default function NewItem({ onAddItem }) {
         []
     );
 
-    function handleSubmit(event) {event.preventDefault();
+    function handleSubmit(event) {
+        event.preventDefault();
         const trimmedName = name.trim();
         if (!trimmedName) return;
 
@@ -82,7 +83,7 @@ export default function NewItem({ onAddItem }) {
             </div>
 
             {/* Category */}
-            <div className="w-1/2 space-y-1">
+            <div className="space-y-1">
                 <label htmlFor="item-category" className="block text-sm text-slate-200">
                     Category
                 </label>

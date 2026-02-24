@@ -32,8 +32,8 @@ export default function ItemList({ items }) {
                 onClick={() => setSortBy(value)}
                 className={`px-3 py-1 rounded border transition-colors ${
                     isActive
-                        ? "bg-slate-500 text-white border-slate-500"
-                        : "bg-slate-1000 text-slate-300 border-slate-1500 hover:bg-slate-800"
+                        ? "bg-slate-700 text-white border-slate-500"
+                        : "bg-black text-gray-300 border-gray-700 hover:bg-gray-900"
                 }`}
             >
                 {children}
@@ -46,6 +46,7 @@ export default function ItemList({ items }) {
             <div className="flex flex-wrap gap-2 mb-4">
                 <SortButton value="name">Sort by Name</SortButton>
                 <SortButton value="category">Sort by Category</SortButton>
+                <SortButton value="group">Group by Category</SortButton>
             </div>
 
             {sortBy !== "group" ? (

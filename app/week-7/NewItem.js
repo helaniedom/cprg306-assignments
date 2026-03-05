@@ -3,9 +3,11 @@
 import { useState, useMemo } from "react";
 
 export default function NewItem({ onAddItem }) {
-    const [name, setName] = useState("");
-    const [quantity, setQuantity] = useState(1);
-    const [category, setCategory] = useState("Produce");
+    const [item, setItem] = useState({
+        name: "",
+        quantity: 1,
+        category: "produce",
+    });
 
     const categories = useMemo(
         () => [
@@ -56,9 +58,10 @@ export default function NewItem({ onAddItem }) {
 
                 <input
                     id="item-name"
+                    name="name"
                     type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={item.name}
+                    onChange={handleChange}
                     placeholder="Item name"
                     required
                     className="w-full p-2 rounded-md"
@@ -73,11 +76,12 @@ export default function NewItem({ onAddItem }) {
 
                 <input
                     id="item-quantity"
+                    name="quantity"
                     type="number"
                     min={1}
                     max={99}
-                    value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    value={item.quantity}
+                    onChange={handleChange}
                     className="w-full p-2 rounded-md"
                 />
             </div>

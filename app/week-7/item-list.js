@@ -66,7 +66,6 @@ export default function ItemList({ items }) {
                             <ul>
                                 {items
                                     .filter((item) => item.category === category)
-                                    .slice()
                                     .sort((a, b) => a.name.localeCompare(b.name))
                                     .map((item) => (
                                         <Item key={item.id} {...item} />

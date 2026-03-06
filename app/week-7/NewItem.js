@@ -6,7 +6,7 @@ export default function NewItem({ onAddItem }) {
     const [item, setItem] = useState({
         name: "",
         quantity: 1,
-        category: "produce",
+        category: "Produce",
     });
 
     const categories = useMemo(
@@ -26,22 +26,32 @@ export default function NewItem({ onAddItem }) {
         []
     );
 
+    function handleChange(e) {
+        const { name, value } = e.target;
+
+        setItem((prev) => ({
+            ...prev,
+            [name]: name === "quantity" ? Number(value) : value,
+        }));
+    }
+
     function handleSubmit(event) {
         event.preventDefault();
-        const trimmedName = name.trim();
+        const trimmedName = item.name.trim();
         if (!trimmedName) return;
 
         const newItem = {
-            id: crypto.randomUUID(),
+            ...item,
             name: trimmedName,
-            quantity,
-            category,
+            id: crypto.randomUUID(),
         };
 
         onAddItem(newItem);
-        setName("");
-        setQuantity(1);
-        setCategory("Produce");
+        setItem({
+            name: "",
+            quantity: 1,
+            category: "Produce",
+        });
     }
 
     return (
@@ -93,8 +103,9 @@ export default function NewItem({ onAddItem }) {
                 </label>
                 <select
                     id="item-category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    name="category"
+                    value={item.category}
+                    onChange={handleChange}
                     className="w-full p-2 rounded-md bg-slate-700 text-white border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         
                     {categories.map((c) => (

@@ -9,10 +9,10 @@ export default function Page() {
     const [items, setItems] = useState(itemsData);
     const [lastAddedItem, setLastAddedItem] = useState(null);
 
-    function handleAddItem(newItem) {
-        setItems((prevItems) => [...prevItems, newItem]);
+    const handleAddItem = (newItem) => {
+        setItems((prev) => [...prev, newItem]);
         setLastAddedItem(newItem);
-    }
+    };
 
     return (
         <main className="min-h-screen bg-slate-900 p-6">

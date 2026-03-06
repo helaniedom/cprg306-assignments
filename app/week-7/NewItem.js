@@ -2,12 +2,14 @@
 
 import { useState, useMemo } from "react";
 
+const initialState = {
+    name: "",
+    quantity: 1,
+    category: "Produce",
+};
+
 export default function NewItem({ onAddItem }) {
-    const [item, setItem] = useState({
-        name: "",
-        quantity: 1,
-        category: "Produce",
-    });
+    const [item, setItem] = useState(initialState);
 
     const categories = useMemo(
         () => [
@@ -37,6 +39,7 @@ export default function NewItem({ onAddItem }) {
 
     function handleSubmit(event) {
         event.preventDefault();
+
         const trimmedName = item.name.trim();
         if (!trimmedName) return;
 
@@ -47,11 +50,7 @@ export default function NewItem({ onAddItem }) {
         };
 
         onAddItem(newItem);
-        setItem({
-            name: "",
-            quantity: 1,
-            category: "Produce",
-        });
+        setItem(initialState);
     }
 
     return (

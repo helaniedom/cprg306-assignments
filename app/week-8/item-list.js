@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Item from "./item";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name"); // "name" | "category" | "group"
 
     const categories = useMemo(() => {
@@ -52,7 +52,11 @@ export default function ItemList({ items }) {
             {sortBy !== "group" ? (
                 <ul>
                     {sortedItems.map((item) => (
-                        <Item key={item.id} {...item} />
+                        <Item 
+                            key={item.id} 
+                            {...item} 
+                            onSelect={() => onItemSelect(item)}
+                        />
                     ))}
                 </ul>
             ) : (
@@ -68,7 +72,11 @@ export default function ItemList({ items }) {
                                     .filter((item) => item.category === category)
                                     .sort((a, b) => a.name.localeCompare(b.name))
                                     .map((item) => (
-                                        <Item key={item.id} {...item} />
+                                        <Item 
+                                            key={item.id} 
+                                            {...item} 
+                                            onSelect={() => onItemSelect(item)}
+                                        />
                                     ))}
                             </ul>
                         </div>

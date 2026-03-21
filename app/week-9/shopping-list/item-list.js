@@ -6,9 +6,7 @@ import Item from "./item";
 export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name"); // "name" | "category" | "group"
 
-    const categories = useMemo(() => {
-        return [...new Set(items.map((item) => item.category))].sort();
-    }, [items]);
+    const categories = [...new Set(items.map((item) => item.category))].sort();
 
     const sortedItems = useMemo(() => {
         const copy = [...items];

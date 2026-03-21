@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 const initialState = {
     name: "",
@@ -8,25 +8,23 @@ const initialState = {
     category: "Produce",
 };
 
+const categories = [
+    "Produce",
+    "Dairy",
+    "Bakery",
+    "Meat",
+    "Frozen Foods",
+    "Canned Goods",
+    "Dry Goods",
+    "Beverages",
+    "Snacks",
+    "Household",
+    "Other",
+];
+
 export default function NewItem({ onAddItem }) {
     const [item, setItem] = useState(initialState);
 
-    const categories = useMemo(
-        () => [
-            "Produce",
-            "Dairy",
-            "Bakery",
-            "Meat",
-            "Frozen Foods",
-            "Canned Goods",
-            "Dry Goods",
-            "Beverages",
-            "Snacks",
-            "Household",
-            "Other",
-        ],
-        []
-    );
 
     function handleChange(e) {
         const { name, value } = e.target;

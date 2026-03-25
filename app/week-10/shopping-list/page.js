@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserAuth } from "../../contexts/AuthContext";
-import itemsData from "./items.json";
+import { getItems, addItem } from "../_services/shopping-list-service";
 import ItemList from "./item-list";
 import NewItem from "./NewItem";
 import MealIdeas from "./MealIdeas";
@@ -11,7 +11,7 @@ import MealIdeas from "./MealIdeas";
 export default function Page() {
     const { user } = useUserAuth();
     const router = useRouter();
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState("");
 
     useEffect(() => {

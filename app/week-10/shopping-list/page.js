@@ -14,14 +14,23 @@ export default function Page() {
     const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState("");
 
+    const loadItems = async () => {
+        const userItems = await getItems(user.uid);
+        setItems(userItems);
+    };
+
     useEffect(() => {
         if (!user) {
             router.push("/week-9");
+            return;
         }
+
+        loadItems();
     }, [user, router]);
 
-    const handleAddItem = (newItem) => {
-        setItems((prev) => [...prev, newItem]);
+    const handleAddItem = async (newItem) => {
+        const id = await addItem(user.uid, newItem);
+        setItems((prev) => [...prev, { id, ...newItem }]);
     };
 
     const handleItemSelect = (item) => {

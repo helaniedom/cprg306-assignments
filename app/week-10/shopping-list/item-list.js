@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Item from "./item";
 
-export default function ItemList({ items, onItemSelect }) {
+export default function ItemList({ items, onItemSelect, onDeleteItem }) {
     const [sortBy, setSortBy] = useState("name"); // "name" | "category" | "group"
 
     const categories = [...new Set(items.map((item) => item.category))].sort();
@@ -54,6 +54,7 @@ export default function ItemList({ items, onItemSelect }) {
                             key={item.id} 
                             {...item} 
                             onSelect={() => onItemSelect(item)}
+                            onDelete={() => onDeleteItem(item.id)}
                         />
                     ))}
                 </ul>
@@ -74,6 +75,7 @@ export default function ItemList({ items, onItemSelect }) {
                                             key={item.id} 
                                             {...item} 
                                             onSelect={() => onItemSelect(item)}
+                                            onDelete={() => onDeleteItem(item.id)}
                                         />
                                     ))}
                             </ul>

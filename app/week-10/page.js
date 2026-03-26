@@ -6,11 +6,11 @@ import { useUserAuth } from "../contexts/AuthContext";
 
 export default function Week10Page() {
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
-    const [error, setError] = useState("");
+    const [error, setError] = useState(null);
 
     const handleLogin = async () => {
         try {
-            setError("");
+            setError(null);
             await gitHubSignIn();
         } catch (error) {
             setError("Login failed. Please try again.");
@@ -20,7 +20,7 @@ export default function Week10Page() {
 
     const handleLogout = async () => {
         try {
-            setError("");
+            setError(null);
             await firebaseSignOut();
         } catch (error) {
             setError("Logout failed. Please try again.");
